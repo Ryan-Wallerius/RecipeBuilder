@@ -10,8 +10,8 @@ public class Recipes {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ID", columnDefinition = "INT")
-    private Integer id;
+    @Column(name = "RecipesID", columnDefinition = "INT")
+    private Integer recipesId;
 
     @Column(name = "RecipeName", columnDefinition = "VARCHAR(100)")
     private String recipeName;
@@ -26,12 +26,12 @@ public class Recipes {
     private Timestamp CreatedDate;
 
     // Getters and setters
-    public Integer getId() {
-        return id;
+    public Integer getRecipesId() {
+        return recipesId;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setRecipesId(Integer recipesId) {
+        this.recipesId = recipesId;
     }
 
     public String getRecipeName() {

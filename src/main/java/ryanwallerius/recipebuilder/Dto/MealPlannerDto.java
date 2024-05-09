@@ -4,17 +4,17 @@ import java.sql.Date;
 import java.sql.Timestamp;
 
 public class MealPlannerDto {
-    private Integer id;
+    private Integer mealPlannerId;
     private Date asOfWeek;
     private String createdBy;
     private Timestamp createdDate;
 
-    public Integer getId() {
-        return id;
+    public Integer getMealPlannerId() {
+        return mealPlannerId;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setMealPlannerId(Integer mealPlannerId) {
+        this.mealPlannerId = mealPlannerId;
     }
 
     public Date getAsOfWeek() {

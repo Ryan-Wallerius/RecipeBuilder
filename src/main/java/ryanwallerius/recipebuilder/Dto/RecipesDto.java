@@ -3,19 +3,19 @@ package ryanwallerius.recipebuilder.Dto;
 import java.sql.Timestamp;
 
 public class RecipesDto {
-    private Integer id;
+    private Integer recipesId;
     private String recipeName;
     private String dayOfWeek;
     private String createdBy;
     private Timestamp createdDate; 
 
     // Getters and Setters
-    public Integer getId() {
-        return id;
+    public Integer getRecipesId() {
+        return recipesId;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setRecipesId(Integer recipesId) {
+        this.recipesId = recipesId;
     }
 
     public String getRecipeName() {

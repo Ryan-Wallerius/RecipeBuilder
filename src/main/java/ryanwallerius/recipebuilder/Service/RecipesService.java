@@ -21,7 +21,7 @@ public class RecipesService implements IRecipesService {
 
     public RecipesDto convertToDto(Recipes recipe) {
         RecipesDto dto = new RecipesDto();
-        dto.setId(recipe.getId());
+        dto.setRecipesId(recipe.getRecipesId());
         dto.setRecipeName(recipe.getRecipeName());
         dto.setDayOfWeek(recipe.getDayOfWeek());
         dto.setCreatedBy(recipe.getCreatedBy());
@@ -32,7 +32,7 @@ public class RecipesService implements IRecipesService {
 
     public Recipes convertToEntity(RecipesDto dto) {
         Recipes recipe = new Recipes();
-        recipe.setId(dto.getId());
+        recipe.setRecipesId(dto.getRecipesId());
         recipe.setRecipeName(dto.getRecipeName());
         recipe.setDayOfWeek(dto.getDayOfWeek());
         recipe.setCreatedBy(dto.getCreatedBy());

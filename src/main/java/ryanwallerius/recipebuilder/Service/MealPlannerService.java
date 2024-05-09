@@ -20,7 +20,7 @@ public class MealPlannerService implements IMealPlannerService {
     // Convert a MealPlanner entity to a MealPlannerDto
     private MealPlannerDto convertToDto(MealPlanner mealPlanner) {
         MealPlannerDto dto = new MealPlannerDto();
-        dto.setId(mealPlanner.getId());
+        dto.setMealPlannerId(mealPlanner.getMealPlannerId());
         dto.setAsOfWeek(mealPlanner.getAsOfWeek());
         dto.setCreatedBy(mealPlanner.getCreatedBy());
         dto.setCreatedDate(mealPlanner.getCreatedDate());
@@ -30,7 +30,7 @@ public class MealPlannerService implements IMealPlannerService {
     // Convert a MealPlannerDto to a MealPlanner entity
     private MealPlanner convertToEntity(MealPlannerDto dto) {
         MealPlanner mealPlanner = new MealPlanner();
-        mealPlanner.setId(dto.getId());
+        mealPlanner.setMealPlannerId(dto.getMealPlannerId());
         mealPlanner.setAsOfWeek(dto.getAsOfWeek());
         mealPlanner.setCreatedBy(dto.getCreatedBy());
         mealPlanner.setCreatedDate(dto.getCreatedDate());

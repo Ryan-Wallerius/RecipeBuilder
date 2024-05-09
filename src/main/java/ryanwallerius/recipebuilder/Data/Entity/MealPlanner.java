@@ -10,8 +10,8 @@ public class MealPlanner {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ID", columnDefinition = "INT")
-    private Integer id;
+    @Column(name = "MealPlannerID", columnDefinition = "INT")
+    private Integer mealPlannerId;
 
     @Column(name = "AsOfWeek", columnDefinition = "DATE")
     private Date asOfWeek;
@@ -23,12 +23,12 @@ public class MealPlanner {
     private Timestamp createdDate;
 
     // Getters and setters
-    public Integer getId() {
-        return id;
+    public Integer getMealPlannerId() {
+        return mealPlannerId;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setMealPlannerId(Integer mealPlannerId) {
+        this.mealPlannerId = mealPlannerId;
     }
 
     public Date getAsOfWeek() {
