@@ -20,6 +20,7 @@ dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-web")
 	runtimeOnly("com.microsoft.sqlserver:mssql-jdbc")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
+	implementation("javax.persistence:javax.persistence-api:2.2")
 }
 
 tasks.withType<Test> {
