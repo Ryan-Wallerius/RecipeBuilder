@@ -1,28 +1,14 @@
-package ryanwallerius.recipebuilder.Data.Entity;
+package ryanwallerius.recipebuilder.Dto;
 
 import java.sql.Date;
 import java.sql.Timestamp;
-import jakarta.persistence.*;
 
-@Entity
-@Table(name = "[MealPlanner]")
-public class MealPlanner {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ID", columnDefinition = "INT")
+public class MealPlannerDto {
     private Integer id;
-
-    @Column(name = "AsOfWeek", columnDefinition = "DATE")
     private Date asOfWeek;
-
-    @Column(name = "CreatedBy", columnDefinition = "VARCHAR(255)")
     private String createdBy;
-
-    @Column(name = "CreatedDate", columnDefinition = "DATETIME2")
     private Timestamp createdDate;
 
-    // Getters and setters
     public Integer getId() {
         return id;
     }
@@ -51,8 +37,7 @@ public class MealPlanner {
         return createdDate;
     }
 
-    public void setCreatedDate(Timestamp createDate) {
-        this.createdDate = createDate;
+    public void setCreatedDate(Timestamp createdDate) {
+        this.createdDate = createdDate;
     }
-
 }

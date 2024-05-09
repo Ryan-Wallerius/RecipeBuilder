@@ -1,8 +1,8 @@
 package ryanwallerius.recipebuilder.Service;
 
 import java.util.List;
-import ryanwallerius.recipebuilder.Data.Entity.MealPlanner;
+import ryanwallerius.recipebuilder.Dto.MealPlannerDto;
 
 public interface IMealPlannerService {
-    List<MealPlanner> getAllMeals();
+    List<MealPlannerDto> getAllMeals();
 }

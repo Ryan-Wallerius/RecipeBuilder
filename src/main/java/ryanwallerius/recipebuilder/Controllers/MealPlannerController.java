@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
-import ryanwallerius.recipebuilder.Data.Entity.MealPlanner;
+import ryanwallerius.recipebuilder.Dto.MealPlannerDto;
 import ryanwallerius.recipebuilder.Service.IMealPlannerService;
 
 @RestController
@@ -18,7 +18,7 @@ public class MealPlannerController {
     }
 
     @GetMapping("/api/MealPlans")
-    public List<MealPlanner> getRecipes() {
-        return _repo.getAllMeals();
+    public List<MealPlannerDto> getMealPlansDto() {
+        return _repo.getAllMeals(); 
     }
 }
