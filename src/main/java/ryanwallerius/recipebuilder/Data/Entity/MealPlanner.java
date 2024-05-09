@@ -1,16 +1,16 @@
 package ryanwallerius.recipebuilder.Data.Entity;
 
 import java.sql.Date;
-import java.time.LocalDateTime;
-
-import javax.persistence.*;
+import java.sql.Timestamp;
+import jakarta.persistence.*;
 
 @Entity
-@Table(name = "MealPlanner", schema = "dbo")
+@Table(name = "[MealPlanner]")
 public class MealPlanner {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "ID", columnDefinition = "INT")
     private Integer id;
 
     @Column(name = "AsOfWeek", columnDefinition = "DATE")
@@ -20,7 +20,7 @@ public class MealPlanner {
     private String createdBy;
 
     @Column(name = "CreatedDate", columnDefinition = "DATETIME2")
-    private LocalDateTime createDate;
+    private Timestamp createDate;
 
     // Getters and setters
     public Integer getId() {
@@ -47,11 +47,11 @@ public class MealPlanner {
         this.createdBy = createdBy;
     }
 
-    public LocalDateTime getCreateDate() {
+    public Timestamp getCreateDate() {
         return createDate;
     }
 
-    public void setCreateDate(LocalDateTime createDate) {
+    public void setCreateDate(Timestamp createDate) {
         this.createDate = createDate;
     }
 
