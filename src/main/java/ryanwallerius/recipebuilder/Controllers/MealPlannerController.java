@@ -10,15 +10,15 @@ import ryanwallerius.recipebuilder.Service.IMealPlannerService;
 
 @RestController
 public class MealPlannerController {
-    private final IMealPlannerService _repo;
+    private final IMealPlannerService _mealService;
 
     @Autowired
-    public MealPlannerController(IMealPlannerService repo) {
-        _repo = repo;
+    public MealPlannerController(IMealPlannerService mealService) {
+        _mealService = mealService;
     }
 
-    @GetMapping("/api/MealPlans")
+    @GetMapping("/api/mealplans")
     public List<MealPlannerDto> getMealPlansDto() {
-        return _repo.getAllMeals(); 
+        return _mealService.getAllMeals(); 
     }
 }
