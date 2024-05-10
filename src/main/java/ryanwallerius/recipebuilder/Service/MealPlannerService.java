@@ -4,7 +4,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ryanwallerius.recipebuilder.Data.Entity.MealPlanner;
 import ryanwallerius.recipebuilder.Data.Repository.MealPlannerRepository;
-import ryanwallerius.recipebuilder.Dto.MealPlannerDto;
+import ryanwallerius.recipebuilder.Dto.*; 
+
+import java.sql.Timestamp;
+import java.time.Instant;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -37,6 +40,15 @@ public class MealPlannerService implements IMealPlannerService {
         return mealPlanner;
     }
 
+    public MealPlanner convertRequestDtoToEntity(MealPlannerRequestDto requestDto) {
+        MealPlanner mealPlanner = new MealPlanner();
+
+        mealPlanner.setAsOfWeek(requestDto.getAsOfWeek());
+        mealPlanner.setCreatedBy(requestDto.getCreatedBy());
+
+        return mealPlanner;
+    }
+
     public List<MealPlannerDto> getAllMeals() {
         List<MealPlanner> mealPlannerList = _repo.findAll();
 
@@ -45,5 +57,24 @@ public class MealPlannerService implements IMealPlannerService {
                 .collect(Collectors.toList());
 
         return mealPlannerDtoList;
+    }
+
+    public MealPlannerDto getMealPlanById(int id) {
+        MealPlanner mealPlanner = _repo.findById(id).orElseThrow(); 
+        MealPlannerDto dto = convertToDto(mealPlanner);
+
+        return dto;
+    }
+
+    public UpdateResponseDto<MealPlannerDto> createMealPlan(RequestDto<MealPlannerRequestDto> requestDto) {
+        MealPlanner mealPlanner = convertRequestDtoToEntity(requestDto.getData());
+
+        Timestamp currentTimestamp = Timestamp.from(Instant.now());
+        mealPlanner.setCreatedDate(currentTimestamp);
+
+        mealPlanner = _repo.save(mealPlanner);
+        MealPlannerDto dto = convertToDto(mealPlanner);
+
+        return new UpdateResponseDto<MealPlannerDto>(dto, 1);
     }
 }

@@ -10,19 +10,19 @@ public class Recipes {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "RecipesID", columnDefinition = "INT")
+    @Column(name = "RecipesID")
     private Integer recipesId;
 
-    @Column(name = "RecipeName", columnDefinition = "VARCHAR(100)")
+    @Column(name = "RecipeName")
     private String recipeName;
 
-    @Column(name = "DayOfWeek", columnDefinition = "VARCHAR(25)")
+    @Column(name = "DayOfWeek")
     private String dayOfWeek; 
 
-    @Column(name = "CreatedBy", columnDefinition = "VARCHAR(100)")
+    @Column(name = "CreatedBy")
     private String CreatedBy; 
 
-    @Column(name = "CreatedDate", columnDefinition = "datetime")
+    @Column(name = "CreatedDate")
     private Timestamp CreatedDate;
 
     // Getters and setters

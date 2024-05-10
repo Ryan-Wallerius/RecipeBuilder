@@ -1,6 +1,5 @@
 package ryanwallerius.recipebuilder.Data.Entity;
 
-import java.sql.Date;
 import java.sql.Timestamp;
 import jakarta.persistence.*;
 
@@ -10,16 +9,16 @@ public class MealPlanner {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "MealPlannerID", columnDefinition = "INT")
+    @Column(name = "MealPlannerID")
     private Integer mealPlannerId;
 
-    @Column(name = "AsOfWeek", columnDefinition = "DATE")
-    private Date asOfWeek;
+    @Column(name = "AsOfWeek")
+    private Timestamp asOfWeek;
 
-    @Column(name = "CreatedBy", columnDefinition = "VARCHAR(255)")
+    @Column(name = "CreatedBy")
     private String createdBy;
 
-    @Column(name = "CreatedDate", columnDefinition = "DATETIME2")
+    @Column(name = "CreatedDate")
     private Timestamp createdDate;
 
     // Getters and setters
@@ -31,11 +30,11 @@ public class MealPlanner {
         this.mealPlannerId = mealPlannerId;
     }
 
-    public Date getAsOfWeek() {
+    public Timestamp getAsOfWeek() {
         return asOfWeek;
     }
 
-    public void setAsOfWeek(Date asOfWeek) {
+    public void setAsOfWeek(Timestamp asOfWeek) {
         this.asOfWeek = asOfWeek;
     }
 

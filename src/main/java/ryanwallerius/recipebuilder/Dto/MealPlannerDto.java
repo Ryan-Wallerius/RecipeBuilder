@@ -1,11 +1,10 @@
 package ryanwallerius.recipebuilder.Dto;
 
-import java.sql.Date;
 import java.sql.Timestamp;
 
 public class MealPlannerDto {
     private Integer mealPlannerId;
-    private Date asOfWeek;
+    private Timestamp asOfWeek;
     private String createdBy;
     private Timestamp createdDate;
 
@@ -17,11 +16,11 @@ public class MealPlannerDto {
         this.mealPlannerId = mealPlannerId;
     }
 
-    public Date getAsOfWeek() {
+    public Timestamp getAsOfWeek() {
         return asOfWeek;
     }
 
-    public void setAsOfWeek(Date asOfWeek) {
+    public void setAsOfWeek(Timestamp asOfWeek) {
         this.asOfWeek = asOfWeek;
     }
 
