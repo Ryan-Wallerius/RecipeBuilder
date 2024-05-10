@@ -34,4 +34,9 @@ public class MealPlannerController {
     public UpdateResponseDto<MealPlannerDto> createMealPlan(@RequestBody RequestDto<MealPlannerRequestDto> mealPlanDto) throws Exception {
         return _mealService.createMealPlan(mealPlanDto);
     }
+
+    @PutMapping("/{id}")
+    public UpdateResponseDto<MealPlannerDto> updateMealPlan(@PathVariable("id") int id, @RequestBody RequestDto<MealPlannerRequestDto> mealPlanDto) throws Exception {
+        return _mealService.updateMealPlan(id, mealPlanDto);
+    }
 }

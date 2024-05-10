@@ -5,10 +5,10 @@ import org.springframework.stereotype.Service;
 import ryanwallerius.recipebuilder.Data.Entity.MealPlanner;
 import ryanwallerius.recipebuilder.Data.Repository.MealPlannerRepository;
 import ryanwallerius.recipebuilder.Dto.*; 
-
 import java.sql.Timestamp;
 import java.time.Instant;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -70,6 +70,24 @@ public class MealPlannerService implements IMealPlannerService {
         MealPlanner mealPlanner = convertRequestDtoToEntity(requestDto.getData());
 
         Timestamp currentTimestamp = Timestamp.from(Instant.now());
+        mealPlanner.setCreatedDate(currentTimestamp);
+
+        mealPlanner = _repo.save(mealPlanner);
+        MealPlannerDto dto = convertToDto(mealPlanner);
+
+        return new UpdateResponseDto<MealPlannerDto>(dto, 1);
+    }
+
+    public UpdateResponseDto<MealPlannerDto> updateMealPlan(int id, RequestDto<MealPlannerRequestDto> requestDto) {
+        Optional<MealPlanner> mealPlannerOpt = _repo.findById(id); 
+        if (mealPlannerOpt.isEmpty())
+            return new UpdateResponseDto<MealPlannerDto>(); 
+
+        Timestamp currentTimestamp = Timestamp.from(Instant.now());
+           
+        MealPlanner mealPlanner = mealPlannerOpt.get();
+        mealPlanner.setAsOfWeek(requestDto.getData().getAsOfWeek());
+        mealPlanner.setCreatedBy(requestDto.getData().getCreatedBy());
         mealPlanner.setCreatedDate(currentTimestamp);
 
         mealPlanner = _repo.save(mealPlanner);

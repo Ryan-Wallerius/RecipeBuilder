@@ -9,6 +9,8 @@ public class UpdateResponseDto<T> {
         this.changeCount = changeCount;
     }
 
+    public UpdateResponseDto() { }
+
     public T getObject() {
         return object;
     }

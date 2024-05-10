@@ -10,4 +10,5 @@ public interface IMealPlannerService {
     List<MealPlannerDto> getAllMeals();
     MealPlannerDto getMealPlanById(int id);
     UpdateResponseDto<MealPlannerDto> createMealPlan(RequestDto<MealPlannerRequestDto> requestDto);
+    UpdateResponseDto<MealPlannerDto> updateMealPlan(int id, RequestDto<MealPlannerRequestDto> requestDto);
 }
