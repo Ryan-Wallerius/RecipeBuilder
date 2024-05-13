@@ -2,7 +2,7 @@ package ryanwallerius.recipebuilder.Controllers;
 
 import java.util.List;
 
-import org.springframework.web.bind.annotation.*; 
+import org.springframework.web.bind.annotation.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import ryanwallerius.recipebuilder.Dto.MealPlannerDto;
 import ryanwallerius.recipebuilder.Dto.MealPlannerRequestDto;
@@ -22,7 +22,7 @@ public class MealPlannerController {
 
     @GetMapping("")
     public List<MealPlannerDto> getMealPlansDto() throws Exception {
-        return _mealService.getAllMeals(); 
+        return _mealService.getAllMeals();
     }
 
     @GetMapping("/{id}")
@@ -31,12 +31,14 @@ public class MealPlannerController {
     }
 
     @PostMapping("")
-    public UpdateResponseDto<MealPlannerDto> createMealPlan(@RequestBody RequestDto<MealPlannerRequestDto> mealPlanDto) throws Exception {
+    public UpdateResponseDto<MealPlannerDto> createMealPlan(@RequestBody RequestDto<MealPlannerRequestDto> mealPlanDto)
+            throws Exception {
         return _mealService.createMealPlan(mealPlanDto);
     }
 
     @PutMapping("/{id}")
-    public UpdateResponseDto<MealPlannerDto> updateMealPlan(@PathVariable("id") int id, @RequestBody RequestDto<MealPlannerRequestDto> mealPlanDto) throws Exception {
+    public UpdateResponseDto<MealPlannerDto> updateMealPlan(@PathVariable("id") int id,
+            @RequestBody RequestDto<MealPlannerRequestDto> mealPlanDto) throws Exception {
         return _mealService.updateMealPlan(id, mealPlanDto);
     }
 }
